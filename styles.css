@@ -36,10 +36,74 @@ img {
   height: 130px;
 }
 
+.game {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+}
+
 h1 {
   font-family: 'Neonderthaw';
   font-size: 50px;
   text-align: center;
   text-shadow: 0 0 40px hotpink;
   color: #FEDBE5;
+}
+
+.game-board-container {
+  margin-top: 20px;
+  width: 70%;
+  height: 70%;
+  justify-content: center;
+  background-color: #110134;
+  color: #FEDBE5;
+  display: grid;
+  grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+}
+
+.grid-item {
+  border: 1px solid #FEDBE5;
+  box-shadow: 80px hotpink;
+  font-size: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#one {
+  border-top: none;
+  border-left: none;
+}
+
+#two {
+  border-top: none;
+}
+
+#three {
+  border-top: none;
+  border-right: none;
+}
+
+#four {
+  border-left: none;
+}
+
+#six {
+  border-right: none;
+}
+
+#seven {
+  border-bottom: none;
+  border-left: none;
+}
+
+#eight {
+  border-bottom: none;
+}
+
+#nine {
+  border-bottom: none;
+  border-right: none;
 }
