@@ -1,0 +1,45 @@
+body {
+  display: flex;
+  justify-content: space-between;
+  background-color: #110134
+  }
+
+.player-one,
+.player-two {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #FEDBE5;
+  width: 20%;
+  height: 86vh;
+}
+
+.icon-text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  width: 200px;
+}
+
+p {
+  font-family: 'Neonderthaw';
+  font-size: 30px;
+  color: #FEDBE5;
+  text-align: center;
+  text-shadow: 0 0 30px hotpink;
+}
+
+img {
+  width: 130px;
+  height: 130px;
+}
+
+h1 {
+  font-family: 'Neonderthaw';
+  font-size: 50px;
+  text-align: center;
+  text-shadow: 0 0 40px hotpink;
+  color: #FEDBE5;
+}
