@@ -1,5 +1,5 @@
-var player1 = new Player('one');
-var player2 = new Player('two');
+// var player1 = new Player('one');
+// var player2 = new Player('two');
 
 class Game {
   constructor(player) {
@@ -46,9 +46,9 @@ class Game {
 
 // grid selection is made,  parseInt(id) and push to gridSelection array
 
-var players = [
-  {player one}, {player two}
-]
+// var players = [
+//   {player one}, {player two}
+// ]
 
 // two player instances
 // location clicked on grid (target.id ?)
