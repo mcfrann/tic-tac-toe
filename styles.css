@@ -1,8 +1,14 @@
+html {
+  height: 100%;
+  background-image: url(https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/rm251-mind-11_1.jpg?w=1300&dpr=1&fit=default&crop=default&q=80&vib=3&con=3&usm=15&bg=F4F4F3&auto=format&ixlib=js-2.2.1&s=dc67c37e1aa4273ccb81b73402d252df);
+  background-position: center;
+  background-size: cover;
+}
+
 body {
   display: flex;
   justify-content: space-between;
-  background-color: #110134
-  }
+}
 
 .player-one,
 .player-two {
@@ -28,7 +34,7 @@ p {
   font-size: 30px;
   color: #FEDBE5;
   text-align: center;
-  text-shadow: 0 0 30px hotpink;
+  text-shadow: 0 0 20px hotpink;
 }
 
 img {
@@ -39,7 +45,7 @@ img {
 .game {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   width: 60%;
 }
@@ -53,11 +59,9 @@ h1 {
 }
 
 .game-board-container {
-  margin-top: 20px;
-  width: 70%;
-  height: 70%;
-  justify-content: center;
-  background-color: #110134;
+  /* margin-top:15px; */
+  width: 500px;
+  height: 500px;
   color: #FEDBE5;
   display: grid;
   grid-template: repeat(3, 1fr) / repeat(3, 1fr);
@@ -65,7 +69,6 @@ h1 {
 
 .grid-item {
   border: 1px solid #FEDBE5;
-  box-shadow: 80px hotpink;
   font-size: 40px;
   display: flex;
   justify-content: center;
