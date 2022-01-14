@@ -1,13 +1,15 @@
 // Selectors
 
 
-var gridItem = document.querySelector('.grid-item');
+var gridItem = document.querySelectorAll('.grid-item');
 
 
 // Listeners
 
 
-gridItem.addEventListener('click', selectGridItem);
+gridItem.forEach(function(el) {
+  el.addEventListener('click', selectGridItem)
+});
 
 
 // Global variables
