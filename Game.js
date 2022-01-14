@@ -1,25 +1,50 @@
+var player1 = new Player('one');
+var player2 = new Player('two');
+
 class Game {
-  constructor(??) {
-    this.currentPlayer = '';
+  constructor(player) {
+    this.currentPlayer = player.id;
     this.draw = false;
+    // this.gridSelectionOne = [];
+    // this.gridSelectionTwo = [];
   }
 
-  changePlayer(playerId) {
-    var player = new Player(playerId);
-
-    if (player.id === 'one') {
-      this.currentPlayer = 'one';
-    } else if (player.id === 'two') {
-      this.currentPlayer = 'two';
+  changePlayer(player) {
+  if (player.id === 'one') {
+    this.currentPlayer = 'one';
+  } else if (player.id === 'two') {
+    this.currentPlayer = 'two';
     }
   }
-}
-  // in main, what did player select... plug into classes
-  //if user selects this, this happens
 
-  // if current player === playerOne, then playerTwoContainer
-  //every other click switches players unless clicked same spot twice
-  //turn grid spots into buttons, once clicked disable button.. or event targeting
+  gridSection(player) {
+    if (player.gridSelection.includes(1, 2, 3)) {
+      player.wins ++;
+    } else if (player.gridSelection.includes(4, 5, 6)) {
+      player.wins ++;
+    } else if (player.gridSelection.includes(7, 8, 9)) {
+      player.wins ++;
+    } else if (player.gridSelection.includes(1, 4, 7)) {
+      player.wins ++;
+    } else if (player.gridSelection.includes(2, 5, 8)) {
+      player.wins ++;
+    } else if (player.gridSelection.includes(3, 6, 9)) {
+      player.wins ++;
+    } else if (player.gridSelection.includes(1, 5, 9)) {
+      player.wins ++;
+    } else if (player.gridSelection.includes(3, 5, 7)) {
+      player.wins ++;
+    }
+
+    // if (player.wins = 0) {
+    //   this.draw = true;
+    // }
+  }
+}
+  // in main, what did player select... push to array
+  // once clicked disable click on same space.. or event targeting
+
+// grid selection is made,  parseInt(id) and push to gridSelection array
 
 var players = [
   {player one}, {player two}
