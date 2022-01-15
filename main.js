@@ -2,6 +2,8 @@
 
 
 var gridItem = document.querySelectorAll('.grid-item');
+var playerOneTurn = document.querySelector('.player-turn-one');
+var playerTwoTurn = document.querySelector('.player-turn-two');
 
 
 // Listeners
@@ -18,12 +20,20 @@ gridItem.forEach(function(el) {
 
 // Handlers
 
-function selectGridItem(e) {
-  player2.gridSelection.push(e.target.id);
-  gridItem.innerHTML = `<img src="assets/image-from-rawpixel-id-2873787-original.png"/>`;
-  console.log(player2);
+function onClick() {
+
 }
 
-function switchPlayer() {
+function selectGridItem(e) {
+  gridItem.innerHTML = `<img src="assets/image-from-rawpixel-id-2873787-original.png"/>`;
+  player1.gridSelection.push(e.target.id);
+  playerOneTurn.classList.toggle('hidden');
+  playerTwoTurn.classList.toggle('hidden');
+  console.log(player1);
+}
 
+function whichToken(player) {
+  if (player.id === 'one') {
+
+  }
 }
