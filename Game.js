@@ -1,19 +1,21 @@
-var player1 = new Player('one');
-var player2 = new Player('two');
+// var player1 = new Player('one');
+// var player2 = new Player('two');
 
 class Game {
-  constructor(player) {
-    this.currentPlayer = player.id;
+  constructor() {
+    this.playerOne = new Player('one', '1');
+    this.playerTwo = new Player('two', '2');
+    this.currentPlayer = this.playerOne;
+    this.gridSelection = [];
+    // this.players = [this.playerOne, this.playerTwo];
     this.draw = false;
-    // this.gridSelectionOne = [];
-    // this.gridSelectionTwo = [];
   }
 
-  changePlayer(player) {
-  if (player.id === 'one') {
-    this.currentPlayer = 'one';
-  } else if (player.id === 'two') {
-    this.currentPlayer = 'two';
+  changePlayer() {
+    if (this.currentPlayer === this.playerOne) {
+      this.currentPlayer = this.playerTwo;
+    } else if (this.currentPlayer === this.playerTwo) {
+      this.currentPlayer = this.playerOne;
     }
   }
 
@@ -41,14 +43,20 @@ class Game {
     // }
   }
 }
+
+var players = []
+
+// var game = new Game();
+
+
   // in main, what did player select... push to array
   // once clicked disable click on same space.. or event targeting
 
 // grid selection is made,  parseInt(id) and push to gridSelection array
 
-var players = [
-  {player one}, {player two}
-]
+// var players = [
+//   {player one}, {player two}
+// ]
 
 // two player instances
 // location clicked on grid (target.id ?)
