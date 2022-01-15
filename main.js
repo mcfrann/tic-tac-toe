@@ -10,7 +10,7 @@ var playerTwoTurn = document.querySelector('.player-turn-two');
 
 
 gridItem.forEach(function(el) {
-  el.addEventListener('click', selectGridItem)
+  el.addEventListener('click', switchPlayer)
 });
 
 
@@ -20,20 +20,47 @@ gridItem.forEach(function(el) {
 
 // Handlers
 
-function onClick() {
 
+// function selectGridItem(e) {
+//   gridItem.innerHTML = ``;
+//   for (var i = 0; i < gridItem.length; i++) {
+//     gridItem[i].innerHTML = `hi`;
+//   }
+// }
+
+function switchPlayer(e) {
+  var game = new Game();
+
+  game.currentPlayer.gridSelection.push(e.target.id);
+
+  game.changePlayer();
+
+  console.log(game.gridSelection);
+  console.log(game.currentPlayer);
+
+  switchTurnHeading();
 }
 
-function selectGridItem(e) {
-  gridItem.innerHTML = `<img src="assets/image-from-rawpixel-id-2873787-original.png"/>`;
-  player1.gridSelection.push(e.target.id);
+function switchTurnHeading() {
   playerOneTurn.classList.toggle('hidden');
   playerTwoTurn.classList.toggle('hidden');
-  console.log(player1);
 }
+// function switchPlayer(e) {
+//   var game = new Game();
+//
+//   if (game.currentPlayer.id === 'one') {
+//     // game.playerOne.gridSelection.push(e.target.id);
+//     game.gridSelection.push(game.currentPlayer.token);
+//     game.changePlayer();
+//   } else if (newGame.currentPlayer.id === 'two') {
+//     game.gridSelection.push(game.currentPlayer.token);
+//     game.changePlayer();
+//     // game.playerTwo.gridSelection.push(e.target.id);
+//   }
 
-function whichToken(player) {
-  if (player.id === 'one') {
+  // console.log(game.currentPlayer);
+  // console.log(game.gridSelection);
+  // console.log(game.playerOne.gridSelection);
+  // console.log(game.playerTwo.gridSelection);
 
-  }
-}
+// }
