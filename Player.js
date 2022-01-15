@@ -1,23 +1,8 @@
 class Player {
-  constructor(id, token) {
+  constructor(id) {
     this.id = id;
-    this.token = token;
+    this.token = '';
     this.wins = 0;
     this.gridSelection = [];
   }
-
-  // whichPlayer() {
-  //   if (this.id === 'one') {
-  //     this.token = 'assets/image-from-rawpixel-id-2873787-original.png';
-  //   } else if (this.id === 'two'){
-  //     this.token = 'assets/image-from-rawpixel-id-2873708-original.png';
-  //   }
-  // }
 }
-
-
-
-
-// on click event in main that pushes id to gridSelection and then disables click on that id
-// also on click switches to other player
-// innerHTML in main that ${player1.token} or ${player2.token}
