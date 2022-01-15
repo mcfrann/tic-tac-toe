@@ -1,7 +1,7 @@
 class Game {
   constructor() {
-    this.playerOne = new Player('one');
-    this.playerTwo = new Player('two');
+    this.playerOne = new Player('one', "assets/image-from-rawpixel-id-2873787-original.png");
+    this.playerTwo = new Player('two', "assets/image-from-rawpixel-id-2873708-original.png");
     this.currentPlayer = this.playerOne;
     this.gridSelection = [];
     this.draw = false;
@@ -12,14 +12,6 @@ class Game {
       this.currentPlayer = this.playerTwo;
     } else if (this.currentPlayer === this.playerTwo) {
       this.currentPlayer = this.playerOne;
-    }
-  }
-
-  insertToken() {
-    if (this.currentPlayer === this.playerOne) {
-      this.playerOne.token = "assets/image-from-rawpixel-id-2873787-original.png";
-    } else if (this.currentPlayer === this.playerTwo) {
-      this.playerTwo.token = "assets/image-from-rawpixel-id-2873708-original.png";
     }
   }
 
