@@ -58,6 +58,10 @@ h1 {
   color: #FEDBE5;
 }
 
+.hidden {
+  display: none;
+}
+
 .game-board-container {
   /* margin-top:15px; */
   width: 500px;
