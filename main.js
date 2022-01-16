@@ -53,7 +53,7 @@ function incrementWins() {
 }
 
 function checkDraw() {
-  currentTurn.innerHTML = `<h1>It's a draw.</h1>`;
+  currentTurn.innerHTML = `<h1>It's a Draw.</h1>`;
   setTimeout(() => { resetGame(); }, 2000);
 }
 
