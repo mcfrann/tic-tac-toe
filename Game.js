@@ -6,7 +6,6 @@ class Game {
     this.gridSelection = [];
     this.hasWinner = false;
     this.winner = '';
-    this.draw = false;
   }
 
   changePlayer() {
@@ -37,7 +36,6 @@ class Game {
       } else if (oneGrid.includes("three") && oneGrid.includes("five") && oneGrid.includes("seven")) {
         incrementWins();
       } else if (this.gridSelection.length === 9 && this.hasWinner === false) {
-        this.draw = true;
         checkDraw();
       }
     }
