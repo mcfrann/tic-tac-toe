@@ -1,5 +1,8 @@
-// Selectors
+// Global variables
 
+var game = new Game();
+
+// Selectors
 
 var gridContainer = document.querySelector('.game-board-container');
 var gridItem = document.querySelectorAll('.grid-item');
@@ -9,24 +12,13 @@ var currentTurn = document.querySelector('.current-player');
 var playerOneWins = document.querySelector('.plr-one-wins');
 var playerTwoWins = document.querySelector('.plr-two-wins');
 
-
-
 // Listeners
-
 
 gridItem.forEach(function(el) {
   el.addEventListener('click', switchPlayer)
 });
 
-
-// Global variables
-
-
-var game = new Game();
-
-
 // Handlers
-
 
 function switchPlayer(event) {
   if (game.currentPlayer.gridSelection.length < 5 && game.gridSelection.includes(event.target.id) === false && event.target.id !== "") {
@@ -52,11 +44,6 @@ function switchTurnHeading() {
   playerTwoTurn.classList.toggle('hidden');
 }
 
-function checkDraw() {
-  currentTurn.innerHTML = `<h1>It's a draw.</h1>`;
-  setTimeout(() => { resetGame(); }, 2000);
-}
-
 function incrementWins() {
   game.hasWinner = true;
   game.winner = game.currentPlayer;
@@ -65,9 +52,15 @@ function incrementWins() {
   setTimeout(() => { resetGame(); }, 2000);
 }
 
+function checkDraw() {
+  currentTurn.innerHTML = `<h1>It's a draw.</h1>`;
+  setTimeout(() => { resetGame(); }, 2000);
+}
+
 function newTurn() {
   if (game.winner == game.playerOne) {
-    currentTurn.innerHTML = `<h1>Player One Won!</h1>`;
+    currentTurn.innerHTML = `
+    <h1>Player One Won!</h1>`;
     playerOneWins.innerHTML = `Player One Wins:<br>${game.playerOne.wins}</br>`;
   } else if (game.winner == game.playerTwo) {
     currentTurn.innerHTML = `<h1>Player Two Won!</h1>`;
@@ -77,10 +70,10 @@ function newTurn() {
 
 function resetGame() {
   if (game.winner == game.playerOne) {
-    changeToTwo();
+    game.currentPlayer = game.playerTwo;
     currentTurn.innerHTML = `<h1>It's Player Two's Turn!</h1>`;
   } else if (game.winner == game.playerTwo) {
-    changeToOne();
+    game.currentPlayer = game.playerOne;
     currentTurn.innerHTML = `<h1>It's Player One's Turn!</h1>`;
   }
   refreshInnerHtml();
@@ -98,12 +91,4 @@ function refreshArrays() {
   game.playerOne.gridSelection = [];
   game.playerTwo.gridSelection = [];
   game.gridSelection = [];
-}
-
-function changeToOne() {
-  game.currentPlayer = game.playerOne;
-}
-
-function changeToTwo() {
-  game.currentPlayer = game.playerTwo;
 }
