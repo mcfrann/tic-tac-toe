@@ -54,7 +54,7 @@ function switchTurnHeading() {
 
 function checkDraw() {
   currentTurn.innerHTML = `<h1>It's a draw.</h1>`;
-  setTimeout(() => { resetHtml(); }, 2000);
+  setTimeout(() => { resetGame(); }, 2000);
 }
 
 function incrementWins() {
@@ -62,7 +62,7 @@ function incrementWins() {
   game.winner = game.currentPlayer;
   game.winner.wins += 1;
   newTurn();
-  setTimeout(() => { resetHtml(); }, 2000);
+  setTimeout(() => { resetGame(); }, 2000);
 }
 
 function newTurn() {
@@ -75,7 +75,7 @@ function newTurn() {
   }
 }
 
-function resetHtml() {
+function resetGame() {
   if (game.winner == game.playerOne) {
     changeToTwo();
     currentTurn.innerHTML = `<h1>It's Player Two's Turn!</h1>`;
@@ -83,19 +83,18 @@ function resetHtml() {
     changeToOne();
     currentTurn.innerHTML = `<h1>It's Player One's Turn!</h1>`;
   }
+  refreshInnerHtml();
+  refreshArrays();
+  game.hasWinner = false;
+}
 
-  gridContainer.innerHTML = `
-  <div class="grid-item" id="one"></div>
-  <div class="grid-item" id="two"></div>
-  <div class="grid-item" id="three"></div>
-  <div class="grid-item" id="four"></div>
-  <div class="grid-item" id="five"></div>
-  <div class="grid-item" id="six"></div>
-  <div class="grid-item" id="seven"></div>
-  <div class="grid-item" id="eight"></div>
-  <div class="grid-item" id="nine"></div>
-  `
+function refreshInnerHtml() {
+  for (var i = 0; i < gridItem.length; i++) {
+    gridItem[i].innerHTML = "";
+  }
+}
 
+function refreshArrays() {
   game.playerOne.gridSelection = [];
   game.playerTwo.gridSelection = [];
   game.gridSelection = [];
