@@ -57,15 +57,22 @@ function checkDraw() {
   setTimeout(() => { resetHtml(); }, 2000);
 }
 
-function incrementWinsOne() {
+function incrementWins() {
   game.hasWinner = true;
   game.winner = game.currentPlayer;
+  game.winner.wins += 1;
+  newTurn();
+  setTimeout(() => { resetHtml(); }, 2000);
+}
+
+function newTurn() {
   if (game.winner == game.playerOne) {
     currentTurn.innerHTML = `<h1>Player One Won!</h1>`;
+    // playerOneWins.innerHTML = `Player One Wins:${this.playerOne.wins}`;
   } else if (game.winner == game.playerTwo) {
     currentTurn.innerHTML = `<h1>Player Two Won!</h1>`;
+    // playerTwoWins.innerHTML = `Player Two Wins:${this.playerTwo.wins}`;
   }
-  setTimeout(() => { resetHtml(); }, 2000);
 }
 
 function resetHtml() {
@@ -73,7 +80,7 @@ function resetHtml() {
     changeToTwo();
     currentTurn.innerHTML = `<h1>It's Player Two's Turn!</h1>`;
   } else if (game.winner == game.playerTwo) {
-    changeToOne()
+    changeToOne();
     currentTurn.innerHTML = `<h1>It's Player One's Turn!</h1>`;
   }
 

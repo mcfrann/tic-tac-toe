@@ -21,25 +21,25 @@ class Game {
     var oneGrid = this.currentPlayer.gridSelection;
 
     if (oneGrid.includes("one") && oneGrid.includes("two") && oneGrid.includes("three")) {
-        incrementWinsOne();
+        incrementWins();
       } else if (oneGrid.includes("four") && oneGrid.includes("five") && oneGrid.includes("six")) {
-        incrementWinsOne();
+        incrementWins();
       } else if (oneGrid.includes("seven") && oneGrid.includes("eight") && oneGrid.includes("nine")) {
-        incrementWinsOne();
+        incrementWins();
       } else if (oneGrid.includes("one") && oneGrid.includes("four") && oneGrid.includes("seven")) {
-        incrementWinsOne();
+        incrementWins();
       } else if (oneGrid.includes("two") && oneGrid.includes("five") && oneGrid.includes("eight")) {
-        incrementWinsOne();
+        incrementWins();
       } else if (oneGrid.includes("three") && oneGrid.includes("six") && oneGrid.includes("nine")) {
-        incrementWinsOne();
+        incrementWins();
       } else if (oneGrid.includes("one") && oneGrid.includes("five") && oneGrid.includes("nine")) {
-        incrementWinsOne();
+        incrementWins();
       } else if (oneGrid.includes("three") && oneGrid.includes("five") && oneGrid.includes("seven")) {
-        incrementWinsOne();
+        incrementWins();
       } else if (this.gridSelection.length === 9 && this.hasWinner === false) {
         this.draw = true;
         checkDraw();
       }
     }
-    
+
 }
