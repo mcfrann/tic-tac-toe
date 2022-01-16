@@ -33,14 +33,9 @@ function switchPlayer(event) {
     game.currentPlayer.gridSelection.push(event.target.id);
     game.gridSelection.push(event.target.id);
     placeToken(event);
-    game.changePlayer();
-    checkWins();
-    checkDraw();
+    game.checkGrid();
     switchTurnHeading();
-  } else {
-    console.log("here");
   }
-   console.log(game.gridSelection);
 }
 
 function placeToken(event) {
@@ -52,79 +47,36 @@ function placeToken(event) {
 }
 
 function switchTurnHeading() {
+  game.changePlayer();
   playerOneTurn.classList.toggle('hidden');
   playerTwoTurn.classList.toggle('hidden');
 }
 
-function checkWins() {
-  gridSectionOne();
-  gridSectionTwo();
-}
-
-function gridSectionOne() {
-  var oneGrid = game.playerOne.gridSelection;
-  if (oneGrid.includes("one") && oneGrid.includes("two") && oneGrid.includes("three")) {
-    incrementWinsOne();
-  } else if (oneGrid.includes("four") && oneGrid.includes("five") && oneGrid.includes("six")) {
-    incrementWinsOne();
-  } else if (oneGrid.includes("seven") && oneGrid.includes("eight") && oneGrid.includes("nine")) {
-    incrementWinsOne();
-  } else if (oneGrid.includes("one") && oneGrid.includes("four") && oneGrid.includes("seven")) {
-    incrementWinsOne();
-  } else if (oneGrid.includes("two") && oneGrid.includes("five") && oneGrid.includes("eight")) {
-    incrementWinsOne();
-  } else if (oneGrid.includes("three") && oneGrid.includes("six") && oneGrid.includes("nine")) {
-    incrementWinsOne();
-  } else if (oneGrid.includes("one") && oneGrid.includes("five") && oneGrid.includes("nine")) {
-    incrementWinsOne();
-  } else if (oneGrid.includes("three") && oneGrid.includes("five") && oneGrid.includes("seven")) {
-    incrementWinsOne();
-  }
-}
-
-function gridSectionTwo() {
-  var twoGrid = game.playerTwo.gridSelection;
-  if (twoGrid.includes("one") && twoGrid.includes("two") && twoGrid.includes("three")) {
-    incrementWinsTwo();
-  } else if (twoGrid.includes("four") && twoGrid.includes("five") && twoGrid.includes("six")) {
-    incrementWinsTwo();
-  } else if (twoGrid.includes("seven") && twoGrid.includes("eight") && twoGrid.includes("nine")) {
-    incrementWinsTwo();
-  } else if (twoGrid.includes("one") && twoGrid.includes("four") && twoGrid.includes("seven")) {
-    incrementWinsTwo();
-  } else if (twoGrid.includes("two") && twoGrid.includes("five") && twoGrid.includes("eight")) {
-    incrementWinsTwo();
-  } else if (twoGrid.includes("three") && twoGrid.includes("six") && twoGrid.includes("nine")) {
-    incrementWinsTwo();
-  } else if (twoGrid.includes("one") && twoGrid.includes("five") && twoGrid.includes("nine")) {
-    incrementWinsTwo();
-  } else if (twoGrid.includes("three") && twoGrid.includes("five") && twoGrid.includes("seven")) {
-    incrementWinsTwo();
-  }
-}
-
 function checkDraw() {
-  if (game.gridSelection.length === 9) {
-    currentTurn.innerHTML = `<h1>It's a draw.</h1>`;
-    setTimeout(() => { resetHtml(); }, 2000);
-  }
-}
-
-function incrementWinsOne() {
-  game.playerOne.wins += 1;
-  currentTurn.innerHTML = `<h1>Player One Won!</h1>`;
-  playerOneWins.innerHTML = `Player One Wins:<br>${game.playerOne.wins}</br>`;
+  currentTurn.innerHTML = `<h1>It's a draw.</h1>`;
   setTimeout(() => { resetHtml(); }, 2000);
 }
 
-function incrementWinsTwo() {
-  game.playerTwo.wins += 1;
-  currentTurn.innerHTML = `<h1>Player Two Won!</h1>`;
-  playerTwoWins.innerHTML = `Player Two Wins:<br>${game.playerTwo.wins}</br>`;
+function incrementWinsOne() {
+  game.hasWinner = true;
+  game.winner = game.currentPlayer;
+  if (game.winner == game.playerOne) {
+    currentTurn.innerHTML = `<h1>Player One Won!</h1>`;
+  } else if (game.winner == game.playerTwo) {
+    currentTurn.innerHTML = `<h1>Player Two Won!</h1>`;
+  }
   setTimeout(() => { resetHtml(); }, 2000);
 }
 
 function resetHtml() {
+  if (game.winner == game.playerOne) {
+    changeToTwo();
+    currentTurn.innerHTML = `<h1>It's Player Two's Turn!</h1>`;
+  } else if (game.winner == game.playerTwo) {
+    changeToOne()
+    currentTurn.innerHTML = `<h1>It's Player One's Turn!</h1>`;
+  }
+
   gridContainer.innerHTML = `
   <div class="grid-item" id="one"></div>
   <div class="grid-item" id="two"></div>
@@ -136,9 +88,16 @@ function resetHtml() {
   <div class="grid-item" id="eight"></div>
   <div class="grid-item" id="nine"></div>
   `
-  game.changePlayer();
+
   game.playerOne.gridSelection = [];
   game.playerTwo.gridSelection = [];
   game.gridSelection = [];
+}
 
+function changeToOne() {
+  game.currentPlayer = game.playerOne;
+}
+
+function changeToTwo() {
+  game.currentPlayer = game.playerTwo;
 }
