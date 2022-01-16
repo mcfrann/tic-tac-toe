@@ -29,15 +29,17 @@ var game = new Game();
 
 
 function switchPlayer(event) {
-  if (game.currentPlayer.gridSelection.length < 5 && game.gridSelection.includes(event.target.id) === false) {
-    placeToken(event);
+  if (game.currentPlayer.gridSelection.length < 5 && game.gridSelection.includes(event.target.id) === false && event.target.id !== "") {
     game.currentPlayer.gridSelection.push(event.target.id);
     game.gridSelection.push(event.target.id);
+    placeToken(event);
     game.changePlayer();
     checkWins();
     checkDraw();
     switchTurnHeading();
-   }
+  } else {
+    console.log("here");
+  }
    console.log(game.gridSelection);
 }
 
