@@ -15,59 +15,59 @@ class Game {
     }
   }
 
-  gridSectionOne() {
-    if (this.playerOne.gridSelection.includes("one") && this.playerOne.gridSelection.includes("two") && this.playerOne.gridSelection.includes("three")) {
-      this.playerOne.wins += 1;
-      document.querySelector('.current-player').innerHTML = `<h1>Player One Won!</h1>`;
-    } else if (this.playerOne.gridSelection.includes("four") && this.playerOne.gridSelection.includes("five") && this.playerOne.gridSelection.includes("six")) {
-      this.playerOne.wins += 1;
-      document.querySelector('.current-player').innerHTML = `<h1>Player One Won!</h1>`;
-    } else if (this.playerOne.gridSelection.includes("seven") && this.playerOne.gridSelection.includes("eight") && this.playerOne.gridSelection.includes("nine")) {
-      this.playerOne.wins += 1;
-      document.querySelector('.current-player').innerHTML = `<h1>Player One Won!</h1>`;
-    } else if (this.playerOne.gridSelection.includes("one") && this.playerOne.gridSelection.includes("four") && this.playerOne.gridSelection.includes("seven")) {
-      this.playerOne.wins += 1;
-      document.querySelector('.current-player').innerHTML = `<h1>Player One Won!</h1>`;
-    } else if (this.playerOne.gridSelection.includes("two") && this.playerOne.gridSelection.includes("five") && this.playerOne.gridSelection.includes("eight")) {
-      this.playerOne.wins += 1;
-      document.querySelector('.current-player').innerHTML = `<h1>Player One Won!</h1>`;
-    } else if (this.playerOne.gridSelection.includes("three") && this.playerOne.gridSelection.includes("six") && this.playerOne.gridSelection.includes("nine")) {
-      this.playerOne.wins += 1;
-      document.querySelector('.current-player').innerHTML = `<h1>Player One Won!</h1>`;
-    } else if (this.playerOne.gridSelection.includes("one") && this.playerOne.gridSelection.includes("five") && this.playerOne.gridSelection.includes("nine")) {
-      this.playerOne.wins += 1;
-      document.querySelector('.current-player').innerHTML = `<h1>Player One Won!</h1>`;
-    } else if (this.playerOne.gridSelection.includes("three") && this.playerOne.gridSelection.includes("five") && this.playerOne.gridSelection.includes("seven")) {
-      this.playerOne.wins += 1;
-      document.querySelector('.current-player').innerHTML = `<h1>Player One Won!</h1>`;
-    }
-  }
-
-  gridSectionTwo() {
-    if (this.playerTwo.gridSelection.includes("one") && this.playerTwo.gridSelection.includes("two") && this.playerTwo.gridSelection.includes("three")) {
-      this.playerTwo.wins += 1;
-      document.querySelector('.current-player').innerHTML = `<h1>Player Two Won!</h1>`;
-    } else if (this.playerTwo.gridSelection.includes("four") && this.playerTwo.gridSelection.includes("five") && this.playerTwo.gridSelection.includes("six")) {
-      this.playerTwo.wins += 1;
-      document.querySelector('.current-player').innerHTML = `<h1>Player Two Won!</h1>`;
-    } else if (this.playerTwo.gridSelection.includes("seven") && this.playerTwo.gridSelection.includes("eight") && this.playerTwo.gridSelection.includes("nine")) {
-      this.playerTwo.wins += 1;
-      document.querySelector('.current-player').innerHTML = `<h1>Player Two Won!</h1>`;
-    } else if (this.playerTwo.gridSelection.includes("one") && this.playerTwo.gridSelection.includes("four") && this.playerTwo.gridSelection.includes("seven")) {
-      this.playerTwo.wins += 1;
-      document.querySelector('.current-player').innerHTML = `<h1>Player Two Won!</h1>`;
-    } else if (this.playerTwo.gridSelection.includes("two") && this.playerTwo.gridSelection.includes("five") && this.playerTwo.gridSelection.includes("eight")) {
-      this.playerTwo.wins += 1;
-      document.querySelector('.current-player').innerHTML = `<h1>Player Two Won!</h1>`;
-    } else if (this.playerTwo.gridSelection.includes("three") && this.playerTwo.gridSelection.includes("six") && this.playerTwo.gridSelection.includes("nine")) {
-      this.playerTwo.wins += 1;
-      document.querySelector('.current-player').innerHTML = `<h1>Player Two Won!</h1>`;
-    } else if (this.playerTwo.gridSelection.includes("one") && this.playerTwo.gridSelection.includes("five") && this.playerTwo.gridSelection.includes("nine")) {
-      this.playerTwo.wins += 1;
-      document.querySelector('.current-player').innerHTML = `<h1>Player Two Won!</h1>`;
-    } else if (this.playerTwo.gridSelection.includes("three") && this.playerTwo.gridSelection.includes("five") && this.playerTwo.gridSelection.includes("seven")) {
-      this.playerTwo.wins += 1;
-      document.querySelector('.current-player').innerHTML = `<h1>Player Two Won!</h1>`;
-    }
-  }
+  // gridSectionOne() {
+  //   if (this.playerOne.gridSelection.includes("one") && this.playerOne.gridSelection.includes("two") && this.playerOne.gridSelection.includes("three")) {
+  //     this.playerOne.wins += 1;
+  //     document.querySelector('.current-player').innerHTML = `<h1>Player One Won!</h1>`;
+  //   } else if (this.playerOne.gridSelection.includes("four") && this.playerOne.gridSelection.includes("five") && this.playerOne.gridSelection.includes("six")) {
+  //     this.playerOne.wins += 1;
+  //     document.querySelector('.current-player').innerHTML = `<h1>Player One Won!</h1>`;
+  //   } else if (this.playerOne.gridSelection.includes("seven") && this.playerOne.gridSelection.includes("eight") && this.playerOne.gridSelection.includes("nine")) {
+  //     this.playerOne.wins += 1;
+  //     document.querySelector('.current-player').innerHTML = `<h1>Player One Won!</h1>`;
+  //   } else if (this.playerOne.gridSelection.includes("one") && this.playerOne.gridSelection.includes("four") && this.playerOne.gridSelection.includes("seven")) {
+  //     this.playerOne.wins += 1;
+  //     document.querySelector('.current-player').innerHTML = `<h1>Player One Won!</h1>`;
+  //   } else if (this.playerOne.gridSelection.includes("two") && this.playerOne.gridSelection.includes("five") && this.playerOne.gridSelection.includes("eight")) {
+  //     this.playerOne.wins += 1;
+  //     document.querySelector('.current-player').innerHTML = `<h1>Player One Won!</h1>`;
+  //   } else if (this.playerOne.gridSelection.includes("three") && this.playerOne.gridSelection.includes("six") && this.playerOne.gridSelection.includes("nine")) {
+  //     this.playerOne.wins += 1;
+  //     document.querySelector('.current-player').innerHTML = `<h1>Player One Won!</h1>`;
+  //   } else if (this.playerOne.gridSelection.includes("one") && this.playerOne.gridSelection.includes("five") && this.playerOne.gridSelection.includes("nine")) {
+  //     this.playerOne.wins += 1;
+  //     document.querySelector('.current-player').innerHTML = `<h1>Player One Won!</h1>`;
+  //   } else if (this.playerOne.gridSelection.includes("three") && this.playerOne.gridSelection.includes("five") && this.playerOne.gridSelection.includes("seven")) {
+  //     this.playerOne.wins += 1;
+  //     document.querySelector('.current-player').innerHTML = `<h1>Player One Won!</h1>`;
+  //   }
+  // }
+  //
+  // gridSectionTwo() {
+  //   if (this.playerTwo.gridSelection.includes("one") && this.playerTwo.gridSelection.includes("two") && this.playerTwo.gridSelection.includes("three")) {
+  //     this.playerTwo.wins += 1;
+  //     document.querySelector('.current-player').innerHTML = `<h1>Player Two Won!</h1>`;
+  //   } else if (this.playerTwo.gridSelection.includes("four") && this.playerTwo.gridSelection.includes("five") && this.playerTwo.gridSelection.includes("six")) {
+  //     this.playerTwo.wins += 1;
+  //     document.querySelector('.current-player').innerHTML = `<h1>Player Two Won!</h1>`;
+  //   } else if (this.playerTwo.gridSelection.includes("seven") && this.playerTwo.gridSelection.includes("eight") && this.playerTwo.gridSelection.includes("nine")) {
+  //     this.playerTwo.wins += 1;
+  //     document.querySelector('.current-player').innerHTML = `<h1>Player Two Won!</h1>`;
+  //   } else if (this.playerTwo.gridSelection.includes("one") && this.playerTwo.gridSelection.includes("four") && this.playerTwo.gridSelection.includes("seven")) {
+  //     this.playerTwo.wins += 1;
+  //     document.querySelector('.current-player').innerHTML = `<h1>Player Two Won!</h1>`;
+  //   } else if (this.playerTwo.gridSelection.includes("two") && this.playerTwo.gridSelection.includes("five") && this.playerTwo.gridSelection.includes("eight")) {
+  //     this.playerTwo.wins += 1;
+  //     document.querySelector('.current-player').innerHTML = `<h1>Player Two Won!</h1>`;
+  //   } else if (this.playerTwo.gridSelection.includes("three") && this.playerTwo.gridSelection.includes("six") && this.playerTwo.gridSelection.includes("nine")) {
+  //     this.playerTwo.wins += 1;
+  //     document.querySelector('.current-player').innerHTML = `<h1>Player Two Won!</h1>`;
+  //   } else if (this.playerTwo.gridSelection.includes("one") && this.playerTwo.gridSelection.includes("five") && this.playerTwo.gridSelection.includes("nine")) {
+  //     this.playerTwo.wins += 1;
+  //     document.querySelector('.current-player').innerHTML = `<h1>Player Two Won!</h1>`;
+  //   } else if (this.playerTwo.gridSelection.includes("three") && this.playerTwo.gridSelection.includes("five") && this.playerTwo.gridSelection.includes("seven")) {
+  //     this.playerTwo.wins += 1;
+  //     document.querySelector('.current-player').innerHTML = `<h1>Player Two Won!</h1>`;
+  //   }
+  // }
 }
