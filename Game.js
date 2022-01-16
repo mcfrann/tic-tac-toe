@@ -4,6 +4,8 @@ class Game {
     this.playerTwo = new Player('two', "assets/image-from-rawpixel-id-2873708-original.png");
     this.currentPlayer = this.playerOne;
     this.gridSelection = [];
+    this.hasWinner = false;
+    this.winner = '';
     this.draw = false;
   }
 
@@ -15,59 +17,29 @@ class Game {
     }
   }
 
-  // gridSectionOne() {
-  //   if (this.playerOne.gridSelection.includes("one") && this.playerOne.gridSelection.includes("two") && this.playerOne.gridSelection.includes("three")) {
-  //     this.playerOne.wins += 1;
-  //     document.querySelector('.current-player').innerHTML = `<h1>Player One Won!</h1>`;
-  //   } else if (this.playerOne.gridSelection.includes("four") && this.playerOne.gridSelection.includes("five") && this.playerOne.gridSelection.includes("six")) {
-  //     this.playerOne.wins += 1;
-  //     document.querySelector('.current-player').innerHTML = `<h1>Player One Won!</h1>`;
-  //   } else if (this.playerOne.gridSelection.includes("seven") && this.playerOne.gridSelection.includes("eight") && this.playerOne.gridSelection.includes("nine")) {
-  //     this.playerOne.wins += 1;
-  //     document.querySelector('.current-player').innerHTML = `<h1>Player One Won!</h1>`;
-  //   } else if (this.playerOne.gridSelection.includes("one") && this.playerOne.gridSelection.includes("four") && this.playerOne.gridSelection.includes("seven")) {
-  //     this.playerOne.wins += 1;
-  //     document.querySelector('.current-player').innerHTML = `<h1>Player One Won!</h1>`;
-  //   } else if (this.playerOne.gridSelection.includes("two") && this.playerOne.gridSelection.includes("five") && this.playerOne.gridSelection.includes("eight")) {
-  //     this.playerOne.wins += 1;
-  //     document.querySelector('.current-player').innerHTML = `<h1>Player One Won!</h1>`;
-  //   } else if (this.playerOne.gridSelection.includes("three") && this.playerOne.gridSelection.includes("six") && this.playerOne.gridSelection.includes("nine")) {
-  //     this.playerOne.wins += 1;
-  //     document.querySelector('.current-player').innerHTML = `<h1>Player One Won!</h1>`;
-  //   } else if (this.playerOne.gridSelection.includes("one") && this.playerOne.gridSelection.includes("five") && this.playerOne.gridSelection.includes("nine")) {
-  //     this.playerOne.wins += 1;
-  //     document.querySelector('.current-player').innerHTML = `<h1>Player One Won!</h1>`;
-  //   } else if (this.playerOne.gridSelection.includes("three") && this.playerOne.gridSelection.includes("five") && this.playerOne.gridSelection.includes("seven")) {
-  //     this.playerOne.wins += 1;
-  //     document.querySelector('.current-player').innerHTML = `<h1>Player One Won!</h1>`;
-  //   }
-  // }
-  //
-  // gridSectionTwo() {
-  //   if (this.playerTwo.gridSelection.includes("one") && this.playerTwo.gridSelection.includes("two") && this.playerTwo.gridSelection.includes("three")) {
-  //     this.playerTwo.wins += 1;
-  //     document.querySelector('.current-player').innerHTML = `<h1>Player Two Won!</h1>`;
-  //   } else if (this.playerTwo.gridSelection.includes("four") && this.playerTwo.gridSelection.includes("five") && this.playerTwo.gridSelection.includes("six")) {
-  //     this.playerTwo.wins += 1;
-  //     document.querySelector('.current-player').innerHTML = `<h1>Player Two Won!</h1>`;
-  //   } else if (this.playerTwo.gridSelection.includes("seven") && this.playerTwo.gridSelection.includes("eight") && this.playerTwo.gridSelection.includes("nine")) {
-  //     this.playerTwo.wins += 1;
-  //     document.querySelector('.current-player').innerHTML = `<h1>Player Two Won!</h1>`;
-  //   } else if (this.playerTwo.gridSelection.includes("one") && this.playerTwo.gridSelection.includes("four") && this.playerTwo.gridSelection.includes("seven")) {
-  //     this.playerTwo.wins += 1;
-  //     document.querySelector('.current-player').innerHTML = `<h1>Player Two Won!</h1>`;
-  //   } else if (this.playerTwo.gridSelection.includes("two") && this.playerTwo.gridSelection.includes("five") && this.playerTwo.gridSelection.includes("eight")) {
-  //     this.playerTwo.wins += 1;
-  //     document.querySelector('.current-player').innerHTML = `<h1>Player Two Won!</h1>`;
-  //   } else if (this.playerTwo.gridSelection.includes("three") && this.playerTwo.gridSelection.includes("six") && this.playerTwo.gridSelection.includes("nine")) {
-  //     this.playerTwo.wins += 1;
-  //     document.querySelector('.current-player').innerHTML = `<h1>Player Two Won!</h1>`;
-  //   } else if (this.playerTwo.gridSelection.includes("one") && this.playerTwo.gridSelection.includes("five") && this.playerTwo.gridSelection.includes("nine")) {
-  //     this.playerTwo.wins += 1;
-  //     document.querySelector('.current-player').innerHTML = `<h1>Player Two Won!</h1>`;
-  //   } else if (this.playerTwo.gridSelection.includes("three") && this.playerTwo.gridSelection.includes("five") && this.playerTwo.gridSelection.includes("seven")) {
-  //     this.playerTwo.wins += 1;
-  //     document.querySelector('.current-player').innerHTML = `<h1>Player Two Won!</h1>`;
-  //   }
-  // }
+  checkGrid() {
+    var oneGrid = this.currentPlayer.gridSelection;
+
+    if (oneGrid.includes("one") && oneGrid.includes("two") && oneGrid.includes("three")) {
+        incrementWinsOne();
+      } else if (oneGrid.includes("four") && oneGrid.includes("five") && oneGrid.includes("six")) {
+        incrementWinsOne();
+      } else if (oneGrid.includes("seven") && oneGrid.includes("eight") && oneGrid.includes("nine")) {
+        incrementWinsOne();
+      } else if (oneGrid.includes("one") && oneGrid.includes("four") && oneGrid.includes("seven")) {
+        incrementWinsOne();
+      } else if (oneGrid.includes("two") && oneGrid.includes("five") && oneGrid.includes("eight")) {
+        incrementWinsOne();
+      } else if (oneGrid.includes("three") && oneGrid.includes("six") && oneGrid.includes("nine")) {
+        incrementWinsOne();
+      } else if (oneGrid.includes("one") && oneGrid.includes("five") && oneGrid.includes("nine")) {
+        incrementWinsOne();
+      } else if (oneGrid.includes("three") && oneGrid.includes("five") && oneGrid.includes("seven")) {
+        incrementWinsOne();
+      } else if (this.gridSelection.length === 9 && this.hasWinner === false) {
+        this.draw = true;
+        checkDraw();
+      }
+    }
+    
 }
