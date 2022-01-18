@@ -21,13 +21,25 @@ gridItem.forEach(function(el) {
 // Handlers
 
 function switchPlayer(event) {
-  if (game.currentPlayer.gridSelection.length < 5 && game.gridSelection.includes(event.target.id) === false && event.target.id !== "") {
-    game.currentPlayer.gridSelection.push(event.target.id);
-    game.gridSelection.push(event.target.id);
+  if (checkGridInfo()) {
+    updateGridSelection(event);
     placeToken(event);
     game.checkGrid();
     switchTurnHeading();
   }
+}
+
+function checkGridInfo() {
+  if (game.currentPlayer.gridSelection.length < 5 && !game.gridSelection.includes(event.target.id) && event.target.id !== "") {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function updateGridSelection(event) {
+  game.currentPlayer.gridSelection.push(event.target.id);
+  game.gridSelection.push(event.target.id);
 }
 
 function placeToken(event) {
@@ -40,19 +52,26 @@ function placeToken(event) {
 
 function switchTurnHeading() {
   game.changePlayer();
-  if (game.currentPlayer === game.playerOne && !game.winner && !game.draw) {
+  if (game.currentPlayer === game.playerOne && checkValidity()) {
     currentTurn.innerHTML = `
     <h1 class="player-turn-one">It's Player One's Turn!</h1>
     `;
-  } else if (game.currentPlayer === game.playerTwo && !game.winner && !game.draw) {
+  } else if (game.currentPlayer === game.playerTwo && checkValidity()) {
     currentTurn.innerHTML = `
     <h1 class="player-turn-two">It's Player Two's Turn!</h1>
     `;
   }
 }
 
+function checkValidity() {
+  if (!game.winner && !game.isDraw) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 function incrementWins() {
-  game.hasWinner = true;
   game.winner = game.currentPlayer;
   game.winner.wins += 1;
   newTurn();
@@ -60,28 +79,27 @@ function incrementWins() {
 }
 
 function checkDraw() {
-  game.draw = true;
+  game.isDraw = true;
   newTurn();
   setTimeout(() => { resetGame(); }, 2000);
 }
 
 function newTurn() {
-  if (game.winner == game.playerOne) {
+  if (game.winner === game.playerOne) {
     currentTurn.innerHTML = `<h1 class="one-winner">Player One Won!</h1>`;
     playerOneWins.innerHTML = `Player One Wins:<br>${game.playerOne.wins}</br>`;
     game.currentPlayer = game.playerTwo;
-  } else if (game.winner == game.playerTwo) {
+  } else if (game.winner === game.playerTwo) {
     currentTurn.innerHTML = `<h1 class="two-winner">Player Two Won!</h1>`;
     playerTwoWins.innerHTML = `Player Two Wins:<br>${game.playerTwo.wins}</br>`;
     game.currentPlayer = game.playerOne;
-  } else if (game.draw === true) {
+  } else if (game.isDraw) {
     currentTurn.innerHTML = `<h1 class="draw">It's a Draw.</h1>`;
   }
 }
 
 function resetGame() {
-  game.hasWinner = false;
-  game.draw = false;
+  game.isDraw = false;
   game.winner = "";
   switchTurnHeading();
   refreshGameInfo();
