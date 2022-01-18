@@ -4,8 +4,8 @@ class Game {
     this.playerTwo = new Player('two', "assets/image-from-rawpixel-id-2873708-original.png");
     this.currentPlayer = this.playerOne;
     this.gridSelection = [];
-    this.hasWinner = false;
     this.winner = '';
+    this.isDraw = false;
   }
 
   changePlayer() {
@@ -35,7 +35,7 @@ class Game {
         incrementWins();
       } else if (oneGrid.includes("three") && oneGrid.includes("five") && oneGrid.includes("seven")) {
         incrementWins();
-      } else if (this.gridSelection.length === 9 && this.hasWinner === false) {
+      } else if (this.gridSelection.length === 9 && !this.winner) {
         checkDraw();
       }
     }
