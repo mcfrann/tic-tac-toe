@@ -81,20 +81,17 @@ function newTurn() {
 
 function resetGame() {
   game.hasWinner = false;
-  game.winner = "";
   game.draw = false;
+  game.winner = "";
   switchTurnHeading();
-  refreshInnerHtml();
-  refreshArrays();
+  refreshGameInfo();
 }
 
-function refreshInnerHtml() {
+
+function refreshGameInfo() {
   for (var i = 0; i < gridItem.length; i++) {
     gridItem[i].innerHTML = "";
   }
-}
-
-function refreshArrays() {
   game.playerOne.gridSelection = [];
   game.playerTwo.gridSelection = [];
   game.gridSelection = [];
