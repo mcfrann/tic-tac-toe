@@ -6,8 +6,6 @@ var game = new Game();
 
 var gridItem = document.querySelectorAll('.grid-item');
 var gridContainer = document.querySelector('.game-board-container');
-var playerOneTurn = document.querySelector('.player-turn-one');
-var playerTwoTurn = document.querySelector('.player-turn-two');
 var currentTurn = document.querySelector('.current-player');
 var playerOneWins = document.querySelector('.plr-one-wins');
 var playerTwoWins = document.querySelector('.plr-two-wins');
@@ -54,11 +52,11 @@ function switchTurn() {
   game.changePlayer();
   if (game.currentPlayer === game.playerOne && checkValidity()) {
     currentTurn.innerHTML = `
-    <h1 class="player-turn-one">It's Player One's Turn!</h1>
+    <h1>It's Player One's Turn!</h1>
     `;
   } else if (game.currentPlayer === game.playerTwo && checkValidity()) {
     currentTurn.innerHTML = `
-    <h1 class="player-turn-two">It's Player Two's Turn!</h1>
+    <h1>It's Player Two's Turn!</h1>
     `;
   }
 }
@@ -86,15 +84,15 @@ function checkDraw() {
 
 function newTurn() {
   if (game.winner === game.playerOne) {
-    currentTurn.innerHTML = `<h1 class="one-winner">Player One Won!</h1>`;
+    currentTurn.innerHTML = `<h1>Player One Won!</h1>`;
     playerOneWins.innerHTML = `Player One Wins:<br>${game.playerOne.wins}</br>`;
-    game.currentPlayer = game.playerTwo;
+    game.changePlayer();
   } else if (game.winner === game.playerTwo) {
-    currentTurn.innerHTML = `<h1 class="two-winner">Player Two Won!</h1>`;
+    currentTurn.innerHTML = `<h1>Player Two Won!</h1>`;
     playerTwoWins.innerHTML = `Player Two Wins:<br>${game.playerTwo.wins}</br>`;
-    game.currentPlayer = game.playerOne;
+    game.changePlayer();
   } else if (game.isDraw) {
-    currentTurn.innerHTML = `<h1 class="draw">It's a Draw.</h1>`;
+    currentTurn.innerHTML = `<h1>It's a Draw.</h1>`;
   }
 }
 
