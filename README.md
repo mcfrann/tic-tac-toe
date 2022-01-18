@@ -15,7 +15,7 @@ Mod 1 + Final Solo Project
 ## Abstract
 
   Grab a friend and play Tic-Tac-Toe on this neon-themed gameboard!
-  The emphasis of this project was to utilize the skills I've gathered over the last two months during Mod 1 at Turing. This webpage was built completely from scrath and taught me about my strengths and weaknesses in JavaScript logic and problem solving. It also exercised some of my very basic, but growing, HTML and CSS skills which I found to be very fun.
+The emphasis of this project was to utilize the skills I've gathered over the last two months during Mod 1 at Turing. This webpage was built completely from scratch and taught me about my strengths and weaknesses in JavaScript logic and problem solving. It also exercised some of my very basic, but growing, HTML and CSS skills which I found to be very fun.
 
 ## Technologies
   - JavaScript
