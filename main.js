@@ -15,17 +15,17 @@ var playerTwoWins = document.querySelector('.plr-two-wins');
 // Listeners
 
 gridItem.forEach(function(el) {
-  el.addEventListener('click', switchPlayer)
+  el.addEventListener('click', chooseSquare)
 });
 
 // Handlers
 
-function switchPlayer(event) {
+function chooseSquare(event) {
   if (checkGridInfo()) {
     updateGridSelection(event);
     placeToken(event);
     game.checkGrid();
-    switchTurnHeading();
+    switchTurn();
   }
 }
 
@@ -50,7 +50,7 @@ function placeToken(event) {
   }
 }
 
-function switchTurnHeading() {
+function switchTurn() {
   game.changePlayer();
   if (game.currentPlayer === game.playerOne && checkValidity()) {
     currentTurn.innerHTML = `
@@ -101,7 +101,7 @@ function newTurn() {
 function resetGame() {
   game.isDraw = false;
   game.winner = "";
-  switchTurnHeading();
+  switchTurn();
   refreshGameInfo();
 }
 
