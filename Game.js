@@ -6,6 +6,7 @@ class Game {
     this.gridSelection = [];
     this.hasWinner = false;
     this.winner = '';
+    this.draw = false;
   }
 
   changePlayer() {
