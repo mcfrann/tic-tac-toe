@@ -86,11 +86,11 @@ function newTurn() {
   if (game.winner === game.playerOne) {
     currentTurn.innerHTML = `<h1>Player One Won!</h1>`;
     playerOneWins.innerHTML = `Player One Wins:<br>${game.playerOne.wins}</br>`;
-    game.currentPlayer = game.playerTwo;
+    game.changePlayer();
   } else if (game.winner === game.playerTwo) {
     currentTurn.innerHTML = `<h1>Player Two Won!</h1>`;
     playerTwoWins.innerHTML = `Player Two Wins:<br>${game.playerTwo.wins}</br>`;
-    game.currentPlayer = game.playerOne;
+    game.changePlayer();
   } else if (game.isDraw) {
     currentTurn.innerHTML = `<h1>It's a Draw.</h1>`;
   }
